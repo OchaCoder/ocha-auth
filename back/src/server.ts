@@ -1,5 +1,3 @@
-console.log("✅✅✅✅✅✅✅✅ Fastify server is starting...")
-
 import Fastify from "fastify"
 import fastifyCors from "@fastify/cors"
 import { Type, TypeBoxTypeProvider } from "@fastify/type-provider-typebox"
@@ -45,10 +43,10 @@ const fastify = Fastify({
   pluginTimeout: 6000, // default is 10000.
 }).withTypeProvider<TypeBoxTypeProvider>()
 
-// Register CORS
+//Register CORS
 fastify.register(fastifyCors, {
   origin: ["https://6813b9e7b3562700085de766--incomparable-marigold-3f81ff.netlify.app"],
-  credentials: false, // only if cookies is used.
+  credentials: true, // only if cookies is used.
 })
 
 // Register Plugins
@@ -137,7 +135,7 @@ const startServer = async () => {
     fastify.healthRedis("STARTUP")
 
     // Friendly start up log💚🌻
-    console.log("🧹🧹🧹🧹🧹🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🧹🧹🧹🧹🧹")
+    console.log("🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁🥁")
     logStartupMessage(fastify)
 
     // Listen for Ctrl+C or system termination
