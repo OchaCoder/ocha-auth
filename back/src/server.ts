@@ -53,7 +53,7 @@ fastify.register(fastifyCors, {
 fastify.register(errorHandlerPlugin)
 
 // Register header checker
-fastify.register(headerCheckerPlugin)
+//fastify.register(headerCheckerPlugin)
 
 // Health checkers
 fastify.register(healthCheckRedis)
