@@ -1,4 +1,4 @@
-import { RequestEvent, RequestEventAction, RequestEventLoader } from "@builder.io/qwik-city"
+import type { RequestEvent, RequestEventAction, RequestEventLoader } from "@builder.io/qwik-city"
 
 /**
  *

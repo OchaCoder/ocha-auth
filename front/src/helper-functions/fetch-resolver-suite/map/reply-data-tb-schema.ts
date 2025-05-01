@@ -1,5 +1,5 @@
-import { FormatRegistry, TSchema, Type, Static } from "@sinclair/typebox"
-import { TypeCheck, TypeCompiler } from "@sinclair/typebox/compiler"
+import { FormatRegistry, type TSchema, Type, type Static } from "@sinclair/typebox"
+import { type TypeCheck, TypeCompiler } from "@sinclair/typebox/compiler"
 import { backendOpCode } from "../backend-op-codes"
 
 // Register the email format

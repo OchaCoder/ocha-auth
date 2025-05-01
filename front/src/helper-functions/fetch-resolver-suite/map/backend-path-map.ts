@@ -1,4 +1,4 @@
-import { backendOpCode, BackendOpCode } from "../backend-op-codes"
+import { backendOpCode, type BackendOpCode } from "../backend-op-codes"
 
 const backendPathMap: Readonly<Record<BackendOpCode, string>> = {
   // For loading GENRAL staic data (e.g. a product list)

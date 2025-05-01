@@ -1,5 +1,5 @@
 import { $, component$, useContext, useOnWindow } from "@builder.io/qwik"
-import { RequestHandler, routeLoader$, useNavigate } from "@builder.io/qwik-city"
+import { type RequestHandler, routeLoader$, useNavigate } from "@builder.io/qwik-city"
 import { LoadingSpinner } from "../../../../components/Miscs/LoadingSpinner"
 import { ContextIdGlobalState } from "../../../../contexts/ContextGlobalState"
 import { height } from "../../../../routes/layout"
@@ -35,7 +35,6 @@ export const onRequest: RequestHandler = async (ev) => {
   if (!validatedData.success) throw ev.redirect(302, "/oops")
 
   const { rpt, obfuscatedEmail } = validatedData.data
-  console.log("onRequest---->", "rpt, obfuscatedEmail", rpt, obfuscatedEmail)
   ev.sharedMap.set("rpt", rpt)
   ev.sharedMap.set("obfuscatedEmail", obfuscatedEmail)
 }
@@ -59,7 +58,6 @@ export default component$(() => {
   useOnWindow(
     "load",
     $(() => {
-      console.log("useOnWindow---->", "rpt, obfuscatedEmail", rpt, obfuscatedEmail)
       userState.rpt = rpt
       userState.email = obfuscatedEmail
       ctr.authCode = "SETUP_PASSWORD"

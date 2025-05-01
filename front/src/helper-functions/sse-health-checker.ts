@@ -1,6 +1,6 @@
 import { z } from "@builder.io/qwik-city"
 import { configPublic } from "../config-public"
-import { BackendHealth } from "../contexts/ContextGlobalState"
+import { type BackendHealth } from "../contexts/ContextGlobalState"
 
 // Reply @SSE health check
 const replySseHealthCheckSchema = z.object({
@@ -28,7 +28,7 @@ export const sseHealthChecker = (backendHealth: BackendHealth) => {
         backendHealth.suppressGreen = parsedReply.data.initialCheck // If initialCheck is true, suppress green alert.
         backendHealth.stable = parsedReply.data.stable
       }
-    } catch (err) {
+    } catch {
       // Case 1-3: Health report is unreliable (bad JSON or unexpected format).
       // Unlikely, but fallback to unstable
       backendHealth.stable = false
@@ -36,7 +36,7 @@ export const sseHealthChecker = (backendHealth: BackendHealth) => {
   }
 
   // Case 2: Fastify is down. Health report has not arrived.
-  source.onerror = (err) => {
+  source.onerror = () => {
     // SSE connection dropped — Fastify is likely down or restarting
     backendHealth.fastifyDown = true
     backendHealth.stable = false

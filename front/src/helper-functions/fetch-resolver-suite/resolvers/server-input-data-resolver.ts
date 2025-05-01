@@ -1,4 +1,4 @@
-import { backendOpCode, GeneralActionCode, ProtectedActionCode, ProtectedLoaderCode } from "../backend-op-codes"
+import { backendOpCode, type GeneralActionCode, type ProtectedActionCode, type ProtectedLoaderCode } from "../backend-op-codes"
 
 // Function overload
 

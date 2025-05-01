@@ -1,14 +1,14 @@
-import { RequestEvent, RequestEventAction, RequestEventLoader, z } from "@builder.io/qwik-city"
+import type { RequestEvent, RequestEventAction, RequestEventLoader } from "@builder.io/qwik-city"
 import { WretchError } from "wretch/resolver"
 
 // Useful schema for the object that this helper returns.
-export const errorSchema = z.object({
-  success: z.boolean(),
-  errorAction: z.object({
-    type: z.enum(["red", "yellow", "green"]),
-    message: z.string(),
-  }),
-})
+// export const errorSchema = z.object({
+//   success: z.boolean(),
+//   errorAction: z.object({
+//     type: z.enum(["red", "yellow", "green"]),
+//     message: z.string(),
+//   }),
+// })
 
 /**
  * Handles errors thrown during `wretch` fetch operations.
@@ -22,7 +22,6 @@ export const errorSchema = z.object({
  * @returns A soft error response for UI feedback, or throws a redirect.
  */
 export const wretchErrorHandler = (err: unknown, ev: RequestEventAction | RequestEventLoader | RequestEvent) => {
-  console.log("🔥wretchErrorHandler v3", err)
   if (err instanceof WretchError) {
     // Fastify is down
     if (err.json.message === "Service Unavailable") {

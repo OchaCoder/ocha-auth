@@ -1,4 +1,4 @@
-import { RequestHandler } from "@builder.io/qwik-city"
+import { type RequestHandler } from "@builder.io/qwik-city"
 
 // This plugin adds trailing slash for all request if it doesn't have one.
 

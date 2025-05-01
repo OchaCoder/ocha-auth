@@ -1,4 +1,4 @@
-import { Toast } from "../contexts/ContextGlobalState"
+import { type Toast } from "../contexts/ContextGlobalState"
 
 export const addToast = (toast: { count: number; arr: Toast[] }, type: "green" | "yellow" | "red" | "close", txt: string) => {
   // Toast id

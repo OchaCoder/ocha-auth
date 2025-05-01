@@ -1,7 +1,6 @@
-import { RequestEvent, RequestEventAction, RequestEventLoader, z } from "@builder.io/qwik-city"
-import { completeServerOutputSchemaResolver } from "./resolvers/complete-server-output-schema-resolver"
-import { BackendOpCode } from "./backend-op-codes"
-import { CompleteBackendReplyValidator, ServerOutputTypeMap } from "./map/reply-data-tb-schema"
+import type { RequestEvent, RequestEventAction, RequestEventLoader } from "@builder.io/qwik-city"
+import { type BackendOpCode } from "./backend-op-codes"
+import { CompleteBackendReplyValidator, type ServerOutputTypeMap } from "./map/reply-data-tb-schema"
 
 /**
  * Parses the `rawData` object returned from route-specific fetch operations
@@ -29,11 +28,9 @@ import { CompleteBackendReplyValidator, ServerOutputTypeMap } from "./map/reply-
  */
 export const rawReplyValidator = <C extends BackendOpCode>(rawData: unknown, code: C, ev: RequestEventLoader | RequestEventAction | RequestEvent) => {
   const Schema = CompleteBackendReplyValidator[code]
-  console.log("[rawReplyValidator]----zod validating helper that gives more problem than help--rawData", rawData)
 
   if (Schema.Check(rawData)) return rawData as ServerOutputTypeMap[C]
   else {
-    console.log("[CATCH]---If you see this, this is the problem.", Schema.Errors(rawData))
     // This is a bug. Either the backend is not replying with expected shape, or the schema is wrong.
     throw ev.redirect(302, "/oops")
   }

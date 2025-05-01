@@ -1,4 +1,4 @@
-import { $, component$, isServer, useContext, useStore, useTask$ } from "@builder.io/qwik"
+import { $, component$, useContext, useStore } from "@builder.io/qwik"
 import { ContextIdGlobalState } from "../../../contexts/ContextGlobalState"
 import { txtGeneral, txtTip } from "../../../texts"
 import { globalAction$, useNavigate, z, zod$ } from "@builder.io/qwik-city"

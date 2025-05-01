@@ -4,7 +4,7 @@ export const webSafeBtoA = (tokenOriginal: string): string => {
   // Replaces '/' with '_',
   // Replaces '=' at the end with ''.
 
-  let tokenWebSafe = btoa(tokenOriginal).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "")
+  const tokenWebSafe = btoa(tokenOriginal).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/, "")
 
   return tokenWebSafe
 }

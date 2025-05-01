@@ -10,7 +10,7 @@ export const Toast = component$(() => {
 
   return (
     <div class={`toast-container`}>
-      {ctr.toast.arr.map((t, index) => (
+      {ctr.toast.arr.map((t) => (
         <div key={t.id} class={`toast toast-${t.type}`}>
           <div class={`flex justify-center`}>
             {t.type === "green" && <IconCheckCircle size={33} />}

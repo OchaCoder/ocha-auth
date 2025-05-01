@@ -1,5 +1,5 @@
 import { $ } from "@builder.io/qwik"
-import { Ctr } from "../../contexts/ContextGlobalState"
+import { type Ctr } from "../../contexts/ContextGlobalState"
 import { passwordRegex } from "./common/regex"
 
 export const passwordChecker = $((ctr: Ctr, input: string) => {

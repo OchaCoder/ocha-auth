@@ -1,5 +1,5 @@
 import { $, component$, isBrowser, Slot, useContext, useOnWindow, useTask$ } from "@builder.io/qwik"
-import { Link, type RequestHandler } from "@builder.io/qwik-city"
+import { type RequestHandler } from "@builder.io/qwik-city"
 import { ContextIdGlobalState } from "../contexts/ContextGlobalState"
 
 import { Header } from "../components/Header/Header.tsx"

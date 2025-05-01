@@ -1,4 +1,4 @@
-import { $, component$, isBrowser, isServer, useOnWindow, useSignal, useTask$ } from "@builder.io/qwik"
+import { $, component$, isBrowser, useOnWindow, useSignal, useTask$ } from "@builder.io/qwik"
 import { Link, useNavigate } from "@builder.io/qwik-city"
 
 export default component$(() => {

@@ -2,7 +2,7 @@ import { $, component$, useContext, useStore } from "@builder.io/qwik"
 import { ContextIdGlobalState } from "../../../contexts/ContextGlobalState"
 import { LoadingSpinner } from "../../../components/Miscs/LoadingSpinner"
 import { IconArrowRight } from "../../../components/Miscs/Icons"
-import { Link, RequestEventLoader, routeAction$, routeLoader$, useNavigate, z, zod$ } from "@builder.io/qwik-city"
+import { Link, type RequestEventLoader, routeAction$, routeLoader$, useNavigate, z, zod$ } from "@builder.io/qwik-city"
 import { backendOpCode } from "../../../helper-functions/fetch-resolver-suite/backend-op-codes"
 import { serverInputDataResolver } from "../../../helper-functions/fetch-resolver-suite/resolvers/server-input-data-resolver"
 import { wretchResolverProtected } from "../../../helper-functions/fetch-resolver-suite/wretch-resolver-protected"
@@ -70,7 +70,6 @@ export default component$(() => {
     await action.submit(serverInject)
 
     if (action.value?.success === true) {
-      console.log("action.value.data.userData.name.newValue", action.value.data.userData.name.newValue)
       userState.name = action.value.data.userData.name.newValue
       setCookieFromClient("uid", btoa(action.value.data.userData.name.newValue), 60 * 60 * 24 * 30 * 6)
     } else if (action.value?.success === false) addToast(ctr.toast, action.value.errorAction.type, action.value.errorAction.message)

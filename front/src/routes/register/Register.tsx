@@ -1,4 +1,4 @@
-import { $, component$, useContext, useOnWindow, useStore, useTask$ } from "@builder.io/qwik"
+import { $, component$, useContext, useOnWindow, useStore } from "@builder.io/qwik"
 import { txtGeneral, txtTip } from "../../texts"
 import { ContextIdGlobalState } from "../../contexts/ContextGlobalState"
 import { InputName } from "../../components/AuthPortal/Parts/InputName"
@@ -30,7 +30,6 @@ export const Register = component$(() => {
     if (!backendHealth.stable) return
 
     // 3-2. Perform input check before enabling button click.
-    const code = backendOpCode.general.action.ACTION_GENERAL_AUTH_USER_REGISTER
     const { jiggleInputOnError, showToast, checkEmpty, checkFormat } = await onSubmitInputChecker(ctr, { name, email, password })
 
     // 3-3. Jiggle the button as the check fails.

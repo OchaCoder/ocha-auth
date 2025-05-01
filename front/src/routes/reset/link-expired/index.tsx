@@ -1,15 +1,8 @@
-import { $, component$, useOnWindow } from "@builder.io/qwik"
+import { component$ } from "@builder.io/qwik"
 import { Link, useNavigate } from "@builder.io/qwik-city"
 
 export default component$(() => {
   const nav = useNavigate()
-
-  //   This page should only reached via within-site navigation.
-  //   Direct access should be redirected immedietely.
-  // useOnWindow(
-  //   "load",
-  //   $(() => nav("/"))
-  // )
 
   return (
     <div class={`grid justify-center`} style={{ padding: "30px", gap: "30px" }}>

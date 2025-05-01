@@ -54,7 +54,6 @@ export default component$(() => {
     if (!backendHealth.stable) return
 
     // 3-2. Perform input check before enabling button click.
-    const code = backendOpCode.general.action.ACTION_GENERAL_AUTH_RESET_PASSWORD_POST_EMAIL
     const { jiggleInputOnError, showToast, checkEmpty, checkFormat } = await onSubmitInputChecker(ctr, { password })
 
     // 3-3. Show toast with delay.
@@ -68,7 +67,6 @@ export default component$(() => {
 
     // 3-6. Create `serverInject` payload
     const serverInject = { password: password.value, rpt: userState.rpt }
-    console.log("runSubmit--->userState.rpt", userState.rpt)
     // 3-7. Pass the Trigger the action.
     await action.submit(serverInject)
 

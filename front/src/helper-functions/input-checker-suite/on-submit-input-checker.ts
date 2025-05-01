@@ -1,4 +1,4 @@
-import { Ctr } from "../../contexts/ContextGlobalState"
+import { type Ctr } from "../../contexts/ContextGlobalState"
 import { addToast } from "../toast-manager"
 import { isConfirmedValueMatching, isEmailValid, isInputEmpty, isNameValid, isPasswordValid } from "./common/validators"
 

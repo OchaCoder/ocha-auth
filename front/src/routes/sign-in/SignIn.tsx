@@ -1,11 +1,9 @@
 import { $, component$, useContext, useOnWindow, useStore } from "@builder.io/qwik"
-
 import { InputEmail } from "../../components/AuthPortal/Parts/InputEmail"
 import { InputPassword } from "../../components/AuthPortal/Parts/InputPassword"
 import { ContextIdGlobalState } from "../../contexts/ContextGlobalState"
 import { txtGeneral, txtTip } from "../../texts"
 import { useUserSignInAction } from "./use-user-signin-action"
-import { backendOpCode } from "../../helper-functions/fetch-resolver-suite/backend-op-codes"
 import { addToast } from "../../helper-functions/toast-manager"
 import { LoadingSpinner } from "../../components/Miscs/LoadingSpinner"
 import { useNavigate } from "@builder.io/qwik-city"
@@ -28,14 +26,10 @@ export const SignIn = component$(() => {
     if (!backendHealth.stable) return
 
     // 3-2. Perform input check before enabling button click.
-    const code = backendOpCode.general.action.ACTION_GENERAL_AUTH_USER_SIGN_IN
     const { showToast, checkEmpty } = await onSubmitInputChecker(ctr, { email, password })
 
     // 3-3. Show toast with delay if check fails.
-    //showToast()
-
-    // 3-4. Jiggle the button as the check fails.
-    //jiggleInputOnError()
+    showToast()
 
     // 3-5. Button color stays the same but disabled if checks fail.
     if (!checkEmpty()) return // return if any input fields are empty.

@@ -61,18 +61,17 @@ export default component$(() => {
     await signOutFromThisDevice.submit()
 
     // Sign-out was successful. Show green toast, and navigate to home.
-    if (signOutFromThisDevice.value) {
-      if (signOutFromThisDevice.value.success === true) {
-        addToast(ctr.toast, "green", "You are successfully signed-out!")
-        deleteUserCookiesFromClient()
-        userState.name = ""
-        nav("/")
-      }
-      // Sign-out failed. Depending on the backend error, the endresult may involve showing a toast.
-      // Otherwise, the user is already redirected server-side. (see `wretchErrorHandler`).
-      else if (signOutFromThisDevice.value.success === false) {
-        addToast(ctr.toast, signOutFromThisDevice.value.errorAction.type, signOutFromThisDevice.value.errorAction.message)
-      }
+
+    if (signOutFromThisDevice.value?.success === true) {
+      addToast(ctr.toast, "green", "You are successfully signed-out!")
+      deleteUserCookiesFromClient()
+      userState.name = ""
+      nav("/")
+    }
+    // Sign-out failed. Depending on the backend error, the endresult may involve showing a toast.
+    // Otherwise, the user is already redirected server-side. (see `wretchErrorHandler`).
+    else if (signOutFromThisDevice.value?.success === false) {
+      addToast(ctr.toast, signOutFromThisDevice.value.errorAction.type, signOutFromThisDevice.value.errorAction.message)
     }
   })
 
