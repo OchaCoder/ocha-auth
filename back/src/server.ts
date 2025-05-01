@@ -107,6 +107,8 @@ fastify.get("/health-check/redis", healthCheckRedisAPI(fastify))
 // Health Event
 fastify.get("/health-events", healthEvents(fastify))
 
+fastify.get("/test", (request, reply) => reply.status(200).send("The request is received!"))
+
 // Fatal synchronous errors anywhere in the app.
 // Catches Global Errors (even outside Fastify).
 process.on("uncaughtException", (err) => {
@@ -134,7 +136,7 @@ const startServer = async () => {
     fastify.healthRedis("STARTUP")
 
     // Friendly start up log💚🌻
-    console.log("🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱")
+    console.log("🍃🍃🍃🍃🍃🍃🍃🍃🍃🍃🍃")
     logStartupMessage(fastify)
 
     // Listen for Ctrl+C or system termination
