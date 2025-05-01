@@ -127,7 +127,6 @@ This enables:
 
 ## 🫶🏻 Acknowledgments
 
-This project was created with a focus on building clean, responsible backend architecture,  
-and learning the **realistic balance** between security, complexity, and performance.
+This project was created with a focus on building clean, responsible backend architecture, and learning the **realistic balance** between security, complexity, and performance.
 
 ---

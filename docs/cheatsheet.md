@@ -106,6 +106,7 @@ server/
 
 ## 6. Recommended Project Structure
 
+```bash
 ocha-auth/
 ├── backend/
 ├── frontend/
@@ -113,6 +114,7 @@ ocha-auth/
 │ └── cheatsheet.md ← (You are here!)
 ├── .gitignore
 ├── README.md
+```
 
 ## 7. After Successful Push
 
