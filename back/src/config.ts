@@ -8,7 +8,7 @@ const EnvSchema = Type.Object({
   // Frontend
   FRONTEND_URL: Type.String(),
   // Fastify
-  PORT: Type.Number({ default: 3002 }), // Will convert string to number
+  PORT: Type.Number(), // Will convert string to number
   MESSAGE: Type.String(),
   NODE_ENV: Type.Union([Type.Literal("development"), Type.Literal("production"), Type.Literal("test")]),
   // Neon Postgres
@@ -69,7 +69,7 @@ const rawEnv = {
   // Frontend
   FRONTEND_URL: process.env.FRONTEND_URL,
   // Fastify
-  PORT: Number(process.env.PORT),
+  PORT: process.env.PORT ? Number(process.env.PORT) : 3002,
   MESSAGE: process.env.MESSAGE,
   NODE_ENV: process.env.NODE_ENV,
   // Neon Postgres
