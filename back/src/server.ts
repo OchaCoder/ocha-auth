@@ -1,3 +1,5 @@
+console.log("✅✅✅✅✅✅✅✅ Fastify server is starting...")
+
 import Fastify from "fastify"
 import fastifyCors from "@fastify/cors"
 import { Type, TypeBoxTypeProvider } from "@fastify/type-provider-typebox"
