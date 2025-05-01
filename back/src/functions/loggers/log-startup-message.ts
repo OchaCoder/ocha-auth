@@ -6,8 +6,6 @@ export const logStartupMessage = (fastify: FastifyInstance) => {
   console.log(`
             🌷🌸🌻✨🌷🌸🌻✨🌷🌸🌻✨🌷🌸🌻✨🌷🌸🌻✨🌷🌸🌻✨🌷🌸🌻✨🌷🌸🌻✨
     
-SHOW THIS MESSAGE IF UPDATED 
-
             ✨${new Date().toISOString()}✨
             ${config.MESSAGE} [${config.PORT}]
     

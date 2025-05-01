@@ -128,7 +128,6 @@ const startServer = async () => {
     fastify.healthRedis("STARTUP")
 
     // Friendly start up log💚🌻
-    console.log("Hey from server.js!💚🌷🐸🐞🌸")
     logStartupMessage(fastify)
 
     // Listen for Ctrl+C or system termination
