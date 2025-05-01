@@ -1,4 +1,6 @@
+console.log("✅✅✅✅✅✅✅✅ Fastify server is starting...");
 import Fastify from "fastify";
+import fastifyCors from "@fastify/cors";
 import { Type } from "@fastify/type-provider-typebox";
 import { config } from "./config.js";
 // import plugins
@@ -7,7 +9,6 @@ import fastifyRedis from "@fastify/redis";
 import { errorHandlerPlugin } from "./plugins/error-handler.js";
 import { healthCheckRedis } from "./plugins/health-check-redis.js";
 // import route handlers
-import { playground } from "./route-handlers/playground.js";
 import { userRegister, UserRegisterPayloadSchema } from "./route-handlers/auth/user-register.js";
 import { userSignin, UserSignInPayloadSchema } from "./route-handlers/auth/user-signin.js";
 import { userRefreshAccessTokenProxyAdapter, UserRefreshAccessTokenProxyAdapterSchema } from "./route-handlers/auth/user-refresh-access-token-proxy-adapter.js";
@@ -18,7 +19,6 @@ import { RequestBodyUserUpdateSchema, userUpdate } from "./route-handlers/protec
 import { userEdit } from "./route-handlers/protected/user-edit.js";
 import { RequestBodyUserSignOutFromOneSchema, userSignOutFromOne } from "./route-handlers/protected/user-signout-from-one.js";
 import { userSignOutFromAll } from "./route-handlers/protected/user-signout-from-all.js";
-import { playWithErrors } from "./route-handlers/playWithErrors.js";
 import { ioredisOptions } from "./plugins/ioredis/ioredis-options.js";
 import { ioredisAfterHandler } from "./plugins/ioredis/ioredis-after-handler.js";
 import { ioredisErrorDumper } from "./plugins/ioredis/ioredis-error-dumper.js";
@@ -37,6 +37,11 @@ import { headerCheckerPlugin } from "./plugins/header-checker-plugin.js";
 const fastify = Fastify({
     pluginTimeout: 6000, // default is 10000.
 }).withTypeProvider();
+// Register CORS
+fastify.register(fastifyCors, {
+    origin: ["https://6813b9e7b3562700085de766--incomparable-marigold-3f81ff.netlify.app"],
+    credentials: false, // only if cookies is used.
+});
 // Register Plugins
 fastify.register(errorHandlerPlugin);
 // Register header checker
@@ -83,12 +88,6 @@ fastify.get("/health-check/postgres", healthCheckPostgresAPI(fastify));
 fastify.get("/health-check/redis", healthCheckRedisAPI(fastify));
 // Health Event
 fastify.get("/health-events", healthEvents(fastify));
-//Playground
-fastify.get("/p", playground(fastify));
-fastify.get("/e", playWithErrors(fastify));
-fastify.get("/test-cors", async (req, reply) => {
-    return { message: "CORS is working" };
-});
 // Fatal synchronous errors anywhere in the app.
 // Catches Global Errors (even outside Fastify).
 process.on("uncaughtException", (err) => {
@@ -111,6 +110,7 @@ const startServer = async () => {
         // Start health check for Redis
         fastify.healthRedis("STARTUP");
         // Friendly start up log💚🌻
+        console.log("🧹🧹🧹🧹🧹🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🧹🧹🧹🧹🧹");
         logStartupMessage(fastify);
         // Listen for Ctrl+C or system termination
         process.on("SIGINT", () => shutdownHandler(fastify));
