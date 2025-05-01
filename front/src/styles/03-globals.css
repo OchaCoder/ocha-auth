@@ -1,0 +1,171 @@
+.input-theme {
+  position: relative;
+  border: var(--theme) 2px solid;
+  padding: 3px 10px;
+  border-radius: 5px;
+  min-width: 340px;
+  height: 60px;
+}
+
+.input-theme label {
+  position: absolute;
+  padding-right: 10px;
+  font-size: 0.9rem;
+  color: var(--theme);
+  transform: translate(0px, 100%);
+  transition: transform ease-in-out 200ms;
+}
+
+.input-theme .input-has-data,
+.input-theme:has(input:focus) label {
+  transform: translate(-5px, 0px);
+  font-size: 0.7rem;
+}
+
+.input-theme input {
+  height: 100%;
+  width: 100%;
+}
+
+.input-auth-helper {
+  position: absolute;
+  bottom: -18px;
+  left: 20px;
+  font-size: 0.8rem;
+  color: red;
+}
+
+.auth-title {
+  font-size: 1.2rem;
+  color: var(--dual-light);
+  background-color: var(--theme);
+  transform: skew(-16deg);
+  padding: 5px 10px;
+}
+
+.auth-input-visible {
+  position: absolute;
+  cursor: pointer;
+  width: 24px;
+  height: 24px;
+  right: 10px;
+  transform: translate(0%, -150%);
+}
+
+.button {
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 50px;
+  transition: background-color 200ms ease-in-out;
+  text-decoration: none;
+}
+
+.toast-container {
+  position: fixed;
+  bottom: 30px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 2;
+}
+
+.toast {
+  width: 340px;
+  height: 60px;
+  display: grid;
+  gap: 5px;
+  grid-template-columns: 50px 1fr 30px;
+  border-radius: 5px;
+  animation: toastAnimation 7000ms ease-out forwards;
+}
+
+.toast-red {
+  background-color: red;
+}
+.toast-yellow {
+  background-color: #fd7310;
+}
+.toast-green {
+  background-color: green;
+}
+
+.backend-down {
+  visibility: hidden; /* Change dynamically */
+  opacity: 0; /* Change dynamically */
+
+  background-color: #e53935; /* softer red */
+
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 450px;
+
+  border-radius: 12px;
+
+  text-align: center;
+  padding: 10px 8px;
+  z-index: 10;
+
+  animation: backend-down 800ms ease-out;
+  transition:
+    visibility ease-in-out 500ms,
+    opacity ease-in-out 500ms;
+}
+.backend-down.show {
+  visibility: visible; /* Change dynamically */
+  opacity: 1; /* Change dynamically */
+}
+
+.backend-recovered {
+  visibility: hidden; /* Change dynamically */
+  opacity: 0; /* Change dynamically */
+
+  background-color: green; /* softer red */
+
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 100%;
+  max-width: 450px;
+
+  border-radius: 12px;
+
+  text-align: center;
+  padding: 10px 8px;
+  z-index: 20;
+
+  animation: fadeIn 1.5s ease-out;
+  transition:
+    visibility ease-in 1000ms,
+    opacity ease-in 1000ms;
+}
+
+.backend-recovered.show {
+  animation: backend-recovered 2500ms ease-out;
+}
+
+.icon-jiggle {
+  animation: icon-jiggle 0.54s infinite;
+  transform-origin: 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* for wrong inputs */
+.shake {
+  border-color: red;
+  animation: shake 300ms;
+}

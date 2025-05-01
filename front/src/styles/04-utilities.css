@@ -1,0 +1,159 @@
+/* font-size */
+.font-size-7 {
+  font-size: calc(var(--base-font-size) * 0.7);
+}
+
+.font-size-8 {
+  font-size: calc(var(--base-font-size) * 0.8);
+}
+.font-size-9 {
+  font-size: calc(var(--base-font-size) * 0.9);
+}
+.font-size-11 {
+  font-size: calc(var(--base-font-size) * 1.1);
+}
+.font-size-13 {
+  font-size: calc(var(--base-font-size) * 1.3);
+}
+.font-size-14 {
+  font-size: calc(var(--base-font-size) * 1.4);
+}
+.font-size-15 {
+  font-size: calc(var(--base-font-size) * 1.5);
+}
+.font-size-16 {
+  font-size: calc(var(--base-font-size) * 1.6);
+}
+
+/* font-weight */
+.weight-700 {
+  font-weight: 700;
+}
+
+/* display */
+.flex {
+  display: flex;
+}
+.grid {
+  display: grid;
+}
+
+/* flex properties */
+.flex-column {
+  flex-direction: column;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-end {
+  justify-content: end;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.justify-around {
+  justify-content: space-around;
+}
+.items-center {
+  align-items: center;
+}
+
+/* txt-align */
+.text-center {
+  text-align: center;
+}
+/* cursor */
+
+.cursor-auto {
+  cursor: auto;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+.cursor-grab {
+  cursor: grab;
+}
+.cursor-grabbing {
+  cursor: grabbing;
+}
+
+/* user-select */
+.user-select-none {
+  user-select: none;
+}
+.user-select-auto {
+  user-select: auto;
+}
+
+/* color */
+.color-theme {
+  color: var(--theme);
+}
+.color-dual-light {
+  color: var(--dual-light);
+}
+.color-dual-dark {
+  color: var(--dual-dark);
+}
+
+/* background-color */
+.bg-theme {
+  background-color: var(--theme);
+}
+.bg-dual-light {
+  background-color: var(--dual-light);
+}
+.bg-dual-dark {
+  background-color: var(--dual-dark);
+}
+
+.bg-disabled {
+  background-color: gray;
+}
+
+.bg-red {
+  background-color: red;
+}
+.bg-green {
+  background-color: green;
+}
+
+.bg-brown {
+  background-color: chocolate;
+}
+
+.hover-bg-theme:hover {
+  background-color: var(--theme-deep);
+}
+.hover-bg-green:hover {
+  background-color: darkgreen;
+}
+.hover-bg-red:hover {
+  background-color: darkred;
+}
+.hover-bg-brown:hover {
+  background-color: brown;
+}
+
+/* italic */
+.italic {
+  font-style: italic;
+}
+
+/* paddings */
+
+.p5 {
+  padding: 0.5rem;
+}
+.prl5 {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+/* position */
+.absolute {
+  position: absolute;
+}
+.relative {
+  position: relative;
+}

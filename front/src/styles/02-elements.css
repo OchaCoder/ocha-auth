@@ -1,0 +1,19 @@
+body {
+  color: var(--dual-dark);
+  background-color: var(--dual-light);
+  font-family: "Inter", "San Francisco", Arial, sans-serif;
+  transition: background-color 400ms ease-in-out;
+}
+
+input {
+  background-color: var(--dual-light);
+  color: var(--dual-dark);
+  box-shadow: 0 60px 0px inset var(--dual-light);
+  caret-color: var(--dual-dark);
+  -webkit-text-fill-color: var(--dual-dark) !important;
+  transition: box-shadow 400ms ease-in-out;
+}
+
+a {
+  color: inherit;
+}

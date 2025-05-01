@@ -1,0 +1,18 @@
+:root {
+  --base-font-size: 16px;
+
+  --theme: #febe10;
+  --theme-deep: #daa001;
+  --dual-light: white;
+  --dual-dark: #383838;
+
+  --ok: turquoise;
+  --gray: gray;
+}
+
+.dark {
+  --theme: #feaa10;
+  --theme-deep: #c18d01;
+  --dual-light: #383838;
+  --dual-dark: white;
+}
