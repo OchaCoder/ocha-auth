@@ -129,7 +129,7 @@ const startServer = async () => {
 
     // Friendly start up log💚🌻
     logStartupMessage(fastify)
-
+    console.log("Hey from server.js!💚🌷🐸🐞🌸")
     // Listen for Ctrl+C or system termination
     process.on("SIGINT", () => shutdownHandler(fastify))
     process.on("SIGTERM", () => shutdownHandler(fastify))

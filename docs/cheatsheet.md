@@ -111,7 +111,7 @@ ocha-auth/
 ├── backend/
 ├── frontend/
 ├── docs/
-│ └── cheatsheet.md ← (You are here!)
+│ └── cheatsheet.md ← (You are here💡)
 ├── .gitignore
 ├── README.md
 ```
