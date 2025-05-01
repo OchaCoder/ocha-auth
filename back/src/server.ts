@@ -106,7 +106,7 @@ fastify.get("/health-check/postgres", healthCheckPostgresAPI(fastify))
 fastify.get("/health-check/redis", healthCheckRedisAPI(fastify))
 
 // Health Event
-fastify.get("/health-events", healthEvents(fastify))
+fastify.get("/health-events", { config: { cors: true } }, healthEvents(fastify))
 
 // Fatal synchronous errors anywhere in the app.
 // Catches Global Errors (even outside Fastify).
@@ -135,7 +135,7 @@ const startServer = async () => {
     fastify.healthRedis("STARTUP")
 
     // Friendly start up log💚🌻
-    console.log("🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻🌻")
+    console.log("👉👉👉👉👉👉👉👉👉👉")
     logStartupMessage(fastify)
 
     // Listen for Ctrl+C or system termination
