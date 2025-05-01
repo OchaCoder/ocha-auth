@@ -45,8 +45,7 @@ const fastify = Fastify({
 
 //Register CORS
 fastify.register(fastifyCors, {
-  origin: ["https://6813b9e7b3562700085de766--incomparable-marigold-3f81ff.netlify.app"],
-  credentials: true, // only if cookies is used.
+  origin: true, // only if cookies is used.
 })
 
 // Register Plugins
@@ -106,7 +105,7 @@ fastify.get("/health-check/postgres", healthCheckPostgresAPI(fastify))
 fastify.get("/health-check/redis", healthCheckRedisAPI(fastify))
 
 // Health Event
-fastify.get("/health-events", { config: { cors: true } }, healthEvents(fastify))
+fastify.get("/health-events", healthEvents(fastify))
 
 // Fatal synchronous errors anywhere in the app.
 // Catches Global Errors (even outside Fastify).
@@ -135,7 +134,7 @@ const startServer = async () => {
     fastify.healthRedis("STARTUP")
 
     // Friendly start up log💚🌻
-    console.log("👉👉👉👉👉👉👉👉👉👉")
+    console.log("🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱🌱")
     logStartupMessage(fastify)
 
     // Listen for Ctrl+C or system termination
