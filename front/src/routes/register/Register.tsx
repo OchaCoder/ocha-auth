@@ -8,7 +8,6 @@ import { InputConfirmPassword } from "../../components/AuthPortal/Parts/InputCon
 import { PasswordGuide } from "../../components/Miscs/PasswordGuide"
 import { useUserRegisterAction } from "./use-user-register-action"
 import { LoadingSpinner } from "../../components/Miscs/LoadingSpinner"
-import { backendOpCode } from "../../helper-functions/fetch-resolver-suite/backend-op-codes"
 import { addToast } from "../../helper-functions/toast-manager"
 import { onSubmitInputChecker } from "../../helper-functions/input-checker-suite/on-submit-input-checker"
 import { useNavigate } from "@builder.io/qwik-city"

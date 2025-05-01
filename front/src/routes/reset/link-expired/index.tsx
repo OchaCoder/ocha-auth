@@ -1,9 +1,7 @@
 import { component$ } from "@builder.io/qwik"
-import { Link, useNavigate } from "@builder.io/qwik-city"
+import { Link } from "@builder.io/qwik-city"
 
 export default component$(() => {
-  const nav = useNavigate()
-
   return (
     <div class={`grid justify-center`} style={{ padding: "30px", gap: "30px" }}>
       <h2 class="grid justify-center font-size-14 color-theme">Your link is expired.</h2>

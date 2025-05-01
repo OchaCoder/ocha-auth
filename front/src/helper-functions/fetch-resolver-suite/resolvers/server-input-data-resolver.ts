@@ -25,19 +25,28 @@ export function serverInputDataResolver<C extends ProtectedActionCode | Protecte
 export function serverInputDataResolver(code: unknown, payloadData?: unknown) {
   switch (code) {
     case backendOpCode.general.action.ACTION_GENERAL_AUTH_USER_REGISTER:
-
+    // falls through
     case backendOpCode.general.action.ACTION_GENERAL_AUTH_USER_SIGN_IN:
+    // falls through
     case backendOpCode.general.action.ACTION_GENERAL_AUTH_RESET_PASSWORD_PRE_EMAIL:
+    // falls through
     case backendOpCode.general.action.ACTION_GENERAL_AUTH_RESET_PASSWORD_VERIFY_TOKEN:
+    // falls through
     case backendOpCode.general.action.ACTION_GENERAL_AUTH_RESET_PASSWORD_POST_EMAIL:
+    // falls through
     case backendOpCode.protected.action.ACTION_PROTECTED_USER_UPDATE:
+    // falls through
     case backendOpCode.protected.action.ACTION_PROTECTED_USER_SIGN_OUT_FROM_ONE:
       return { code, payload: { hasData: true, data: payloadData } }
 
     case backendOpCode.protected.loader.LOAD_PROTECTED_USER_DASHBOARD:
+    // falls through
     case backendOpCode.protected.loader.LOAD_PROTECTED_USER_EDIT:
+    // falls through
     case backendOpCode.protected.action.ACTION_PROTECTED_USER_DELETE:
+    // falls through
     case backendOpCode.protected.action.ACTION_PROTECTED_USER_SIGN_OUT_FROM_ALL:
+    // falls through
     default:
       return { code, payload: { hasData: false, data: null } }
   }
