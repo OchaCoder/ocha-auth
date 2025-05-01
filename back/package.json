@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "build": "tsc -p tsconfig.json",
-    "start": "npm run build && node dist/server.js",
-    "dev": "nodemon --watch src --ext ts --exec \"npm run start\""
+    "start": "node dist/server.js",
+    "dev-start": "node dist/server.js",
+    "dev": "nodemon --watch src --ext ts --exec \"npm dev-start\""
   },
   "keywords": [],
   "author": "OchaCoder",
