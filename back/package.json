@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "start": "npm run build && node dist/server.js",
-    "dev": "nodemon --watch src --ext ts --exec \"npm run build && node dist/server.js\""
+    "dev": "nodemon --watch src --ext ts --exec \"npm run start\""
   },
   "keywords": [],
   "author": "OchaCoder",
@@ -30,8 +30,7 @@
     "ioredis": "^5.6.0",
     "nanoid": "^5.1.0",
     "paseto": "^3.1.4",
-    "resend": "^4.2.0",
-    "zod": "^3.24.1"
+    "resend": "^4.2.0"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.0",
