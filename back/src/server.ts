@@ -9,7 +9,6 @@ import { errorHandlerPlugin } from "./plugins/error-handler.js"
 import { healthCheckRedis } from "./plugins/health-check-redis.js"
 
 // import route handlers
-import { playground } from "./route-handlers/playground.js"
 import { userRegister, UserRegisterPayloadSchema } from "./route-handlers/auth/user-register.js"
 import { userSignin, UserSignInPayloadSchema } from "./route-handlers/auth/user-signin.js"
 
@@ -22,7 +21,6 @@ import { RequestBodyUserUpdateSchema, userUpdate } from "./route-handlers/protec
 import { userEdit } from "./route-handlers/protected/user-edit.js"
 import { RequestBodyUserSignOutFromOneSchema, userSignOutFromOne } from "./route-handlers/protected/user-signout-from-one.js"
 import { userSignOutFromAll } from "./route-handlers/protected/user-signout-from-all.js"
-import { playWithErrors } from "./route-handlers/playWithErrors.js"
 import { ioredisOptions } from "./plugins/ioredis/ioredis-options.js"
 import { ioredisAfterHandler } from "./plugins/ioredis/ioredis-after-handler.js"
 import { ioredisErrorDumper } from "./plugins/ioredis/ioredis-error-dumper.js"
@@ -102,14 +100,6 @@ fastify.get("/health-check/redis", healthCheckRedisAPI(fastify))
 
 // Health Event
 fastify.get("/health-events", healthEvents(fastify))
-
-//Playground
-fastify.get("/p", playground(fastify))
-fastify.get("/e", playWithErrors(fastify))
-
-fastify.get("/test-cors", async (req, reply) => {
-  return { message: "CORS is working" }
-})
 
 // Fatal synchronous errors anywhere in the app.
 // Catches Global Errors (even outside Fastify).
