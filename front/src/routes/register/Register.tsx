@@ -85,7 +85,7 @@ export const Register = component$(() => {
             class="color-theme cursor-pointer"
             onClick$={() => {
               ctr.authCode = "SIGN_IN"
-              window.history.pushState({}, "", "/sign-in/")
+              nav("/sign-in/")
             }}>
             {txtGeneral.signIn}!
           </span>

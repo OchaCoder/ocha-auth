@@ -78,7 +78,7 @@ export const SignIn = component$(() => {
             class="color-theme cursor-pointer"
             onClick$={() => {
               ctr.authCode = "REGISTER"
-              window.history.pushState({}, "", "/register/")
+              nav("/register/")
             }}>
             {txtTip.call.joinNow}
           </span>

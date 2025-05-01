@@ -83,7 +83,7 @@ export const ResetPassword = component$(() => {
             class="color-theme cursor-pointer"
             onClick$={() => {
               ctr.authCode = "SIGN_IN"
-              window.history.pushState({}, "", "/signin/")
+              nav("/signin/")
             }}>
             {txtGeneral.signIn}!
           </span>
