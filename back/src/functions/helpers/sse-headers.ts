@@ -8,7 +8,7 @@ import { FastifyReply, FastifyRequest } from "fastify"
 
 export const sseHeaders = (request: FastifyRequest, reply: FastifyReply) => {
   reply.raw.writeHead(200, {
-    "Access-Control-Allow-Origin": "http://localhost:36662",
+    "Access-Control-Allow-Origin": "https://6813b9e7b3562700085de766--incomparable-marigold-3f81ff.netlify.app",
     "Content-Type": "text/event-stream", // Tell the browser we're sending a stream of events.
     "Cache-Control": "no-cache", // Disable caching — always send fresh updates.
     Connection: "keep-alive", // Keep the connection alive indefinitely.
