@@ -1,5 +1,5 @@
 import Fastify from "fastify"
-import fastifyCors from "@fastify/cors"
+
 import { Type, TypeBoxTypeProvider } from "@fastify/type-provider-typebox"
 import { config } from "./config.js"
 
@@ -43,16 +43,11 @@ const fastify = Fastify({
   pluginTimeout: 6000, // default is 10000.
 }).withTypeProvider<TypeBoxTypeProvider>()
 
-//Register CORS
-fastify.register(fastifyCors, {
-  origin: true, // only if cookies is used.
-})
-
 // Register Plugins
 fastify.register(errorHandlerPlugin)
 
 // Register header checker
-//fastify.register(headerCheckerPlugin)
+fastify.register(headerCheckerPlugin)
 
 // Health checkers
 fastify.register(healthCheckRedis)
@@ -136,7 +131,7 @@ const startServer = async () => {
     fastify.healthRedis("STARTUP")
 
     // Friendly start up log💚🌻
-    console.log("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥")
+    console.log("🫧🫧🫧🫧🫧🫧🫧🫧🫧")
     logStartupMessage(fastify)
 
     // Listen for Ctrl+C or system termination

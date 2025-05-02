@@ -1,5 +1,4 @@
 import Fastify from "fastify";
-import fastifyCors from "@fastify/cors";
 import { Type } from "@fastify/type-provider-typebox";
 import { config } from "./config.js";
 // import plugins
@@ -31,18 +30,15 @@ import { UserResetPasswordPostEmailSchema, userResetPasswordPostEmail } from "./
 import { healthEvents } from "./route-handlers/health-events/health-events.js";
 import { logStartupMessage } from "./functions/loggers/log-startup-message.js";
 import { userResetPasswordVerifyToken, UserResetPasswordVerifyTokenSchema } from "./route-handlers/auth/user-reset-password-verify-token.js";
+import { headerCheckerPlugin } from "./plugins/header-checker-plugin.js";
 // Create fastify instance
 const fastify = Fastify({
     pluginTimeout: 6000, // default is 10000.
 }).withTypeProvider();
-//Register CORS
-fastify.register(fastifyCors, {
-    origin: true, // only if cookies is used.
-});
 // Register Plugins
 fastify.register(errorHandlerPlugin);
 // Register header checker
-//fastify.register(headerCheckerPlugin)
+fastify.register(headerCheckerPlugin);
 // Health checkers
 fastify.register(healthCheckRedis);
 fastify.register(healthCheckPostgres);
@@ -108,7 +104,7 @@ const startServer = async () => {
         // Start health check for Redis
         fastify.healthRedis("STARTUP");
         // Friendly start up log💚🌻
-        console.log("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
+        console.log("🫧🫧🫧🫧🫧🫧🫧🫧🫧");
         logStartupMessage(fastify);
         // Listen for Ctrl+C or system termination
         process.on("SIGINT", () => shutdownHandler(fastify));
