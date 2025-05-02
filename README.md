@@ -9,7 +9,7 @@ It demonstrates professional-grade features such as real-time server health moni
 
 - **Authentication & Access**
 
-  - Secure header-based backend access control
+  - Secure secret header-based backend access control
   - One-time-use-only Refresh Token model
   - Paseto token system (stronger alternative to JWT)
   - Refresh Tokens never exposed to the frontend — keyed only by browser ID
@@ -18,6 +18,7 @@ It demonstrates professional-grade features such as real-time server health moni
 
   - Real-time backend monitoring via Server-Sent Events (SSE)
     - Persistent health stream with automatic UI updates
+    - A red modal for system down, a green modal for system back up
     - Instant system recovery/downtime detection
     - Safe JSON parsing and initial boot-check flag for graceful UX
 
@@ -49,6 +50,7 @@ It demonstrates professional-grade features such as real-time server health moni
 - IP address and user-agent logging for suspicious access attempts
 - Password hashing with Argon2 (resistant to brute-force)
 - Secure cookie practices (`HttpOnly`, `Secure`, `SameSite=Strict`)
+- Entirely CORS-free architecture by enforcing server-side fetches only — no cross-origin frontend requests
 - Carefully staggered TTLs across tokens and Redis entries
 - Server-side input validation at frontend (Qwik + Zod) and backend (Fastify + TypeBox)
 - Server-side response validation at the frontend boundary (Qwik + TypeBox)
@@ -65,10 +67,6 @@ This enables:
 - **Immediate connection check**: Users know whether the system is stable right when the app loads.
 - **Graceful fallback**: If the connection drops, the UI gracefully detects backend downtime and displays a modal.
 - **Efficient client cleanup**: SSE clients are deregistered on disconnect to prevent memory leaks.
-
-> 💡 **Render Free Tier Note**:  
-> Due to Render’s cold-start behavior, the SSE connection may help keep the backend warm during active use.  
-> On periods of full inactivity (15+ minutes), cold start delay may occur on the next request.
 
 ---
 
@@ -93,26 +91,9 @@ This enables:
 
 ## 🫵 Running Locally
 
-> ⚠️ Please make sure to keep your `.env` file out of Git!  
-> This project uses environment variables for tokens, database credentials, and more.
-
-<!--
-1. Clone the repository
-2. Install dependencies:
-    ```bash
-    pnpm install
-    ```
-3. Set up environment variables (`.env.example` provided)
-4. Start backend:
-    ```bash
-    pnpm dev
-    ```
-5. Start frontend:
-    ```bash
-    pnpm dev
-    ```
-6. Visit: http://localhost:3000
--->
+- Please make sure to keep your `.env` file out of Git!
+- This project uses environment variables for tokens, database credentials, and more.
+- To help setting up environment variables, `.env.example` is provided.
 
 ---
 

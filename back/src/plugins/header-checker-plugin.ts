@@ -27,6 +27,7 @@ export const headerCheckerPlugin = fp(async (fastify: FastifyInstance) => {
     // one could employ an "allow-only-localhost" approach based on the Zero Trust model,
     // which can be much simpler and more reliable than header-token strategies by design.
 
+    // Demo only — production would use dynamic tokens or localhost restrictions.
     const notSoSecureStaticHeaderToken = "3bQdY1mE3agwuYqelMyjoS3GDaTY6iTtpxmg"
     const incomingToken = request.headers["gatekeeper"] as string | undefined
 

@@ -33,7 +33,7 @@ export const onSubmitInputChecker = async (
   const jiggleArray: string[] = []
   const toastArray: string[] = []
 
-  keysOfTargetObj.forEach(async (candidate) => {
+  for (const candidate of keysOfTargetObj) {
     switch (candidate as Candidate) {
       case "name": {
         const value = target.name!.value!
@@ -88,7 +88,7 @@ export const onSubmitInputChecker = async (
         break
       }
     }
-  })
+  }
 
   /**
    * Jiggles the input field for 500ms that had error.

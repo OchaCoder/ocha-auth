@@ -69,7 +69,6 @@ export const userRefreshAccessTokenProxyAdapter = (fastify) => {
                 payload: payload, // Include regardless of whether it contains data
             },
         });
-        console.log("userRefreshAccessTokenProxyAdapter---rawReply", rawReply, "🌻json() rawReply---->", rawReply.json(), '[overview, ...(rawReply.json().sideEffects?.devNotes ? [rawReply.json().sideEffects.devNotes] : [""])]', [overview, ...(rawReply.json().sideEffects?.devNotes ? [rawReply.json().sideEffects.devNotes] : [""])]);
         // 7. [Adapter] Reshape the returned response and send it back to the frontend
         reply.send({
             success: true,
