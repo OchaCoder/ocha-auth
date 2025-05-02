@@ -102,7 +102,7 @@ process.on("unhandledRejection", (reason) => {
 // Start the server
 const startServer = async () => {
     try {
-        fastify.listen({ port: config.PORT, host: config.HOST });
+        fastify.listen({ port: config.PORT, host: "0.0.0.0" });
         await fastify.ready();
         // Start health check for Postgres
         await postgresStartupCheck(fastify);

@@ -3,7 +3,6 @@ import { Static } from "@sinclair/typebox";
 declare const EnvSchema: import("@sinclair/typebox").TObject<{
     FRONTEND_URL: import("@sinclair/typebox").TString;
     PORT: import("@sinclair/typebox").TNumber;
-    HOST: import("@sinclair/typebox").TString;
     MESSAGE: import("@sinclair/typebox").TString;
     NODE_ENV: import("@sinclair/typebox").TUnion<[import("@sinclair/typebox").TLiteral<"development">, import("@sinclair/typebox").TLiteral<"production">, import("@sinclair/typebox").TLiteral<"test">]>;
     dbConfig: import("@sinclair/typebox").TObject<{
