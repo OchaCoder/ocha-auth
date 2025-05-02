@@ -26,7 +26,7 @@ export const SignIn = component$(() => {
     if (!backendHealth.stable) return
 
     // 3-2. Perform input check before enabling button click.
-    const { showToast, checkEmpty } = await onSubmitInputChecker(ctr, { email, password })
+    const { checkEmpty } = await onSubmitInputChecker(ctr, { email, password })
 
     // 3-3. No need to show toast. Inputs are only name and password.
     //showToast()
