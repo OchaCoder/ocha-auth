@@ -1,6 +1,7 @@
 # OchaAuth 🍵 - Secure Authentication System
 
 **OchaAuth** is a modern, secure authentication system built with [Qwik](https://qwik.builder.io/) (frontend) and [Fastify](https://fastify.dev/) (backend). It powers user signup, login, logout, and password reset with a focus on security, performance, and clean code. Perfect for web apps needing reliable auth!
+As a bonus, Demo of header-based request filtering (static token for simplicity) is included as a proof-of-concept.
 
 🚀 **Live Demo**: [Insert Live Link Here]  
 📸 **Screenshots**: [Insert Link or Embed Image of UI]

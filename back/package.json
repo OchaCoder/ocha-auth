@@ -26,7 +26,6 @@
     "dotenv": "^16.4.7",
     "fastify": "^5.2.1",
     "fastify-plugin": "^5.0.1",
-    "ioredis": "^5.6.0",
     "nanoid": "^5.1.0",
     "paseto": "^3.1.4",
     "resend": "^4.2.0"

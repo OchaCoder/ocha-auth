@@ -102,14 +102,13 @@ process.on("unhandledRejection", (reason) => {
 // Start the server
 const startServer = async () => {
     try {
-        fastify.listen({ port: config.PORT, host: "0.0.0.0" });
+        fastify.listen({ port: config.PORT, host: config.HOST });
         await fastify.ready();
         // Start health check for Postgres
         await postgresStartupCheck(fastify);
         // Start health check for Redis
         fastify.healthRedis("STARTUP");
         // Friendly start up log💚🌻
-        console.log("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
         logStartupMessage(fastify);
         // Listen for Ctrl+C or system termination
         process.on("SIGINT", () => shutdownHandler(fastify));
