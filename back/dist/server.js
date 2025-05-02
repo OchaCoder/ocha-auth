@@ -1,4 +1,5 @@
 import Fastify from "fastify";
+import fastifyCors from "@fastify/cors";
 import { Type } from "@fastify/type-provider-typebox";
 import { config } from "./config.js";
 // import plugins
@@ -35,6 +36,10 @@ import { headerCheckerPlugin } from "./plugins/header-checker-plugin.js";
 const fastify = Fastify({
     pluginTimeout: 6000, // default is 10000.
 }).withTypeProvider();
+//Register CORS
+fastify.register(fastifyCors, {
+    origin: true, // only if cookies is used.
+});
 // Register Plugins
 fastify.register(errorHandlerPlugin);
 // Register header checker
@@ -104,7 +109,7 @@ const startServer = async () => {
         // Start health check for Redis
         fastify.healthRedis("STARTUP");
         // Friendly start up log💚🌻
-        console.log("🫧🫧🫧🫧🫧🫧🫧🫧🫧");
+        console.log("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
         logStartupMessage(fastify);
         // Listen for Ctrl+C or system termination
         process.on("SIGINT", () => shutdownHandler(fastify));
