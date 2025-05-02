@@ -1,4 +1,3 @@
-console.log("✅✅✅✅✅✅✅✅ Fastify server is starting...");
 import Fastify from "fastify";
 import fastifyCors from "@fastify/cors";
 import { Type } from "@fastify/type-provider-typebox";
@@ -32,20 +31,18 @@ import { UserResetPasswordPostEmailSchema, userResetPasswordPostEmail } from "./
 import { healthEvents } from "./route-handlers/health-events/health-events.js";
 import { logStartupMessage } from "./functions/loggers/log-startup-message.js";
 import { userResetPasswordVerifyToken, UserResetPasswordVerifyTokenSchema } from "./route-handlers/auth/user-reset-password-verify-token.js";
-import { headerCheckerPlugin } from "./plugins/header-checker-plugin.js";
 // Create fastify instance
 const fastify = Fastify({
     pluginTimeout: 6000, // default is 10000.
 }).withTypeProvider();
-// Register CORS
+//Register CORS
 fastify.register(fastifyCors, {
-    origin: ["https://6813b9e7b3562700085de766--incomparable-marigold-3f81ff.netlify.app"],
-    credentials: false, // only if cookies is used.
+    origin: true, // only if cookies is used.
 });
 // Register Plugins
 fastify.register(errorHandlerPlugin);
 // Register header checker
-fastify.register(headerCheckerPlugin);
+//fastify.register(headerCheckerPlugin)
 // Health checkers
 fastify.register(healthCheckRedis);
 fastify.register(healthCheckPostgres);
@@ -88,6 +85,7 @@ fastify.get("/health-check/postgres", healthCheckPostgresAPI(fastify));
 fastify.get("/health-check/redis", healthCheckRedisAPI(fastify));
 // Health Event
 fastify.get("/health-events", healthEvents(fastify));
+fastify.get("/test", (request, reply) => reply.status(200).send("The request is received!"));
 // Fatal synchronous errors anywhere in the app.
 // Catches Global Errors (even outside Fastify).
 process.on("uncaughtException", (err) => {
@@ -103,14 +101,14 @@ process.on("unhandledRejection", (reason) => {
 // Start the server
 const startServer = async () => {
     try {
-        fastify.listen({ port: config.PORT });
+        fastify.listen({ port: config.PORT, host: "0.0.0.0" });
         await fastify.ready();
         // Start health check for Postgres
         await postgresStartupCheck(fastify);
         // Start health check for Redis
         fastify.healthRedis("STARTUP");
         // Friendly start up log💚🌻
-        console.log("🧹🧹🧹🧹🧹🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🌸🧹🧹🧹🧹🧹");
+        console.log("🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥");
         logStartupMessage(fastify);
         // Listen for Ctrl+C or system termination
         process.on("SIGINT", () => shutdownHandler(fastify));
