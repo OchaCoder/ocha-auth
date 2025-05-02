@@ -1,5 +1,5 @@
 import Fastify from "fastify"
-import fastifyCors from "@fastify/cors"
+// import fastifyCors from "@fastify/cors"
 import { Type, TypeBoxTypeProvider } from "@fastify/type-provider-typebox"
 import { config } from "./config.js"
 
@@ -44,9 +44,9 @@ const fastify = Fastify({
 }).withTypeProvider<TypeBoxTypeProvider>()
 
 //Register CORS
-fastify.register(fastifyCors, {
-  origin: true, // only if cookies is used.
-})
+// fastify.register(fastifyCors, {
+//   origin: true, // only if cookies is used.
+// })
 
 // Register Plugins
 fastify.register(errorHandlerPlugin)
